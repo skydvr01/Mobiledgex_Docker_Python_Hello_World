@@ -69,7 +69,7 @@ docker image ls
 
 Step 3c -- Log into the MobiledgeX Platform
 ```
-docker login -u <your_user_name__remember_it_is_not_your_email> docker.mobiledgex.com
+docker login -u <your_user_name__remember_it_is_not_your_email> docker.mobiledgex.net
 ```
 
 Step 3d -- "Tag" your image with a simple name that you can reference later. I named my container "hello_world:1.0" in lower case. You can see [how this container shows up](https://drive.google.com/file/d/1GGMt6rb5vTtvAi1YfuFB8Gwvs2UkkKav/view?usp=sharing) when I type "docker image ls" in the terminal. 
