@@ -1,13 +1,13 @@
 # MobiledgeX_Docker_Python_Hello_World
 
 This demo application walks through the following
-* Step 1 -- How to create a base level Python http server that serves up a bare bones index.html and view from local browser
+* Step 1 -- How to create a base level Python HTTP server that serves up a bare bones index.html and view from local browser
 * Step 2 -- How to "dockerize" the webserver and view from local browser
 * Step 3 -- How to deploy the "dockerized container" to the MobiledgeX platform and view from local browser
 
 Couple of requirements:
 * This tutorial was developed for Mac OSX
-* Install Python 3 and Git -- https://nodejs.org/en/download/ && https://githowto.com/
+* Install Python 3 and Git -- https://www.python.org/ && https://githowto.com/
 
 ## Step 1 -- Create a Basic Web Server and View from Local Browser
 
@@ -17,17 +17,17 @@ Step 1b -- Download the sample code with Git (make sure you are in your temp dir
 ```
 git clone https://github.com/skydvr01/Mobiledgex_Docker_Python_Hello_World.git
 ```
-Step 1d -- Verify that the same files you see on the Github repository webpage are the same files you see in the local directory. Your local directory should look like this.
+Step 1c -- Verify that the same files you see on the Github repository webpage are the same files you see in the local directory. Your local directory should look like this.
 ```
 ls
 ```
 
-Step 1e -- Start the Python3 http-server server  
+Step 1d -- Start the Python3 http-server server  
 ```
 python3 -m http.server 8000
 ```
 
-Step 1g -- open "http://localhost:8000" in a browser. You should see this <show image> in a new browser window. Congratulations! You started a Python webserver and served up index.html! 
+Step 1e -- open "http://localhost:8000" in a browser. You should see this <show image> in a new browser window. Congratulations! You started a Python webserver and served up index.html! 
 
 ## Step 2 -- Dockerize Your Website and View from Local Browser
 
@@ -35,6 +35,9 @@ Step 2a -- Build the docker image (don't forget the period at the end of this co
 ```
 docker image build -t pytest:1.0 .
 ```
+* Your APPLICATION NAME is "pytest"
+* Your VERSION NUMBER is "1.0"
+
 Step 2b -- Run the docker image you just created
 ```
 docker container run --publish 8000:8010 --detach pytest:1.0
@@ -70,10 +73,10 @@ docker login -u <your_user_name__remember_it_is_not_your_email> docker.mobiledge
 ```
 
 Step 3d -- "Tag" your image with a simple name that you can reference later. I named my container "hello_world:1.0" in lower case. You can see [how this container shows up](https://drive.google.com/file/d/1GGMt6rb5vTtvAi1YfuFB8Gwvs2UkkKav/view?usp=sharing) when I type "docker image ls" in the terminal. 
-⋅⋅* REMEMBER your application name and version number
+⋅⋅* REMEMBER your APPLICATION NAME and VERSION NUMBER
 
 ```
-docker tag <(your application name):(version number)> docker.mobiledgex.net/<your organization name from earlier>/images/<application name>:<version>
+docker tag <(APPLICATION NAME):(VERSION NUMBER)> docker.mobiledgex.net/<your organization name from earlier>/images/<APPLICATION NAME>:<VERSION NUMBER>
 ```
 
 Step 3e -- Push your image to the MobiledgeX Docker Repository
